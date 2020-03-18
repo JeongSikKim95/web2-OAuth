@@ -3,11 +3,15 @@
 
 <head>
   <meta charset="utf-8">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script type="text/javascript" src="color.js"></script>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <meta name="google-signin-client_id"
     content="929500504074-l4blg3nqvofa3c1o37eg7dhks7rh6un4.apps.googleusercontent.com">
+  <script>
+    function init() {
+      console.log("init");
+    }
+  </script>
   <script>
     function onSignIn(googleUser) {
       var profile = googleUser.getBasicProfile();
@@ -39,6 +43,7 @@
     harum ad fugiat,
     expedita assumenda perspiciatis. Ipsam perspiciatis nesciunt sapiente aliquid accusamus incidunt molestiae.
   </p>
+  <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 </body>
 
 </html>
