@@ -10,6 +10,7 @@
       gapi.load('auth2', function () {
         /* Ready. Make a call to gapi.auth2.init or some other API */
         console.log("auth2");
+        var loginBtn = document.querySelector('#loginBtn');
         var gauth = gapi.auth2.init({
           client_id: "929500504074-l4blg3nqvofa3c1o37eg7dhks7rh6un4.apps.googleusercontent.com"
         })
@@ -17,8 +18,10 @@
           console.log('googleAuth success');
           if(gauth.isSignedIn.get()){
             console.log('logined');
+            loginBtn.value = "Logout";
           } else {
             console.log('logouted');
+            loginBtn.value = "Login";
           }
         }), function(){
           console.log('googleAuth fail');
@@ -28,10 +31,10 @@
   </script>
 
   <title>WEB1 - html</title>
-  <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
 
 <body>
+  <input type="button" id="loginBtn" value="checking...">
   <h1><a href="index.html">WEB</a></h1>
   <input id="night_day" type="button" value="night" onclick="
           nightDayHandler(this);
