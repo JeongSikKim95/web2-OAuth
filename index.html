@@ -9,7 +9,7 @@
     function checkLoginStatus(){
       console.log('googleAuth success');
           var loginBtn = document.querySelector('#loginBtn');
-          var nameTxt = docment.querySelector('#name');
+          var nameTxt = document.querySelector('#name');
           if(gauth.isSignedIn.get()){
             console.log('logined');
             loginBtn.value = "Logout";
