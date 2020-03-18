@@ -6,7 +6,17 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script type="text/javascript" src="color.js"></script>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <meta name="google-signin-client_id" content="929500504074-l4blg3nqvofa3c1o37eg7dhks7rh6un4.apps.googleusercontent.com">
+  <meta name="google-signin-client_id"
+    content="929500504074-l4blg3nqvofa3c1o37eg7dhks7rh6un4.apps.googleusercontent.com">
+  <script>
+    function onSignIn(googleUser) {
+      var profile = googleUser.getBasicProfile();
+      console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+      console.log('Name: ' + profile.getName());
+      console.log('Image URL: ' + profile.getImageUrl());
+      console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    }
+  </script>
   <title>WEB1 - html</title>
   <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
@@ -25,7 +35,8 @@
   </ol>
   <h2>WEB</h2>
   <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus dicta nostrum a corporis pariatur delectus tempore harum ad fugiat, 
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus dicta nostrum a corporis pariatur delectus tempore
+    harum ad fugiat,
     expedita assumenda perspiciatis. Ipsam perspiciatis nesciunt sapiente aliquid accusamus incidunt molestiae.
   </p>
 </body>
