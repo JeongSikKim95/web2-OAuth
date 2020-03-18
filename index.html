@@ -6,16 +6,9 @@
   <script type="text/javascript" src="color.js"></script>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script>
-    function init() {
-      gapi.load('auth2', function () {
-        /* Ready. Make a call to gapi.auth2.init or some other API */
-        console.log("auth2");
-        var loginBtn = document.querySelector('#loginBtn');
-        window.gauth = gapi.auth2.init({
-          client_id: "929500504074-l4blg3nqvofa3c1o37eg7dhks7rh6un4.apps.googleusercontent.com"
-        })
-        gauth.then(function(){
-          console.log('googleAuth success');
+    function checkLoginStatus(){
+      console.log('googleAuth success');
+          var loginBtn = document.querySelector('#loginBtn');
           if(gauth.isSignedIn.get()){
             console.log('logined');
             loginBtn.value = "Logout";
@@ -23,6 +16,18 @@
             console.log('logouted');
             loginBtn.value = "Login";
           }
+    }
+
+    function init() {
+      gapi.load('auth2', function () {
+        /* Ready. Make a call to gapi.auth2.init or some other API */
+        console.log("auth2");
+        window.gauth = gapi.auth2.init({
+          client_id: "929500504074-l4blg3nqvofa3c1o37eg7dhks7rh6un4.apps.googleusercontent.com"
+        })
+        gauth.then(function(){
+          console.log('googleAuth success');
+          checkLoginStatus();
         }), function(){
           console.log('googleAuth fail');
         }
@@ -38,10 +43,12 @@
     if(this.value === 'Login'){
       gauth.signIn().then(function(){
         console.log('gauth.signIn()');
+        checkLoginStatus();
       });
     } else {
       gauth.signOut().then(function(){
         console.log('gauth.signOut()');
+        checkLoginStatus();
       });
     }
   ">
